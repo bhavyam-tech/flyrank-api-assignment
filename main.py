@@ -7,15 +7,15 @@ load_dotenv()
 db_url=os.getenv("DATABASE_URL")
 conn=psycopg2.connect(db_url)
 
-# This creates your server application
+# Creating server application
 app = FastAPI()
 
-# This is your first endpoint
+# First endpoint
 @app.get("/")
 def read_root():
     return {"message": "Hello! My backend is working."}
 
-# This is your second endpoint
+# Second endpoint
 @app.get("/data")
 def get_data():
     cur=conn.cursor()
